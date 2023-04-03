@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: clo835-mock
+  labels:
+    appname: node-app-deployment
+    component: frontend
+spec:
+  selector:
+    matchLabels:
+      appname: node-app-replicaset
+      component: frontend
+  template:
+    metadata:
+      labels:
+        appname: node-app-pod
+        component: frontend
+    spec:
+      containers:
+      - name: node-app
+        image: myappimage:v1.0
+        ports:
+        - containerPort: 5000

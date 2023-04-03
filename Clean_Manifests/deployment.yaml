@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clo835-mock
+  labels:
+    app: node-app
+    component: frontend
+spec:
+  selector:
+    matchLabels:
+      app: node-app
+      component: frontend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: node-app
+        component: frontend
+    spec:
+      containers:
+      - name: node-app-image
+        image: 600790893911.dkr.ecr.us-east-1.amazonaws.com/app:latest
+        ports:
+        - containerPort: 5000

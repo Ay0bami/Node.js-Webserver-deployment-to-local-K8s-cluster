@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: clo835-mock
+  labels:
+    app: node-app
+    component: frontend
+spec:
+  ports:
+  - port: 80
+    targetPort: 8081
+  selector:
+    app: node-app
+    component: frontend
